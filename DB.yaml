@@ -4,16 +4,18 @@
   vars:
     login_host: db.sdevops.cloud
   vars_prompt:
-    - name: set mysql root password
-      prompt: Enter mysql root password
-      private: no
+  - name: set mysql root password
+    prompt: Enter mysql root password
+    private: no
+
   
-  -name: Install MySql server
+  tasks:
+  - name: Install MySql server
     ansible.builtin.dnf:
       name: mysql-server
       state: latest
 
-  -name: start and enable mysql server
+  - name: start and enable mysql server
     ansible.builtin.service:
       name: mysqld
       state: started
@@ -30,6 +32,6 @@
     ignore_errors: yes
     register: mysql_connection_output
 
-  -name : print output
+  - name : print output
     ansible.builtin.debug:
-      msg : "Output: {{ysql_connection_output}}"
+      msg : "Output: {{mysql_connection_output}}"
