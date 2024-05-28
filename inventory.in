@@ -1,0 +1,9 @@
+
+[db]
+db.sdevops.cloud
+
+[backend]
+backend.sdevops.cloud
+
+[frontend]
+frontend.sdevops.cloud
